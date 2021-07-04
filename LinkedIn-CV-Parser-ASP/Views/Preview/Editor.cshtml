@@ -1,0 +1,183 @@
+﻿@model EditorViewModel
+@{
+    @if (ViewBag.Role == "User") {
+        Layout = "_Layout_User";
+    } else if (ViewBag.Role == "Admin") {
+        Layout = "_Layout_Admin";
+    }
+    ViewData["Title"] = "Preview page";
+}
+<head>
+    <link rel="stylesheet" href="~/css/styleCV.css">
+</head>
+<body>
+    <div>
+        <p id="note">Note: Right checkboxes for core stack</p>
+        <form action="~/Preview/Download" method="post">
+            <div class="maininfo">
+                <div class="info">
+                    <div class="name">
+                        <label asp-for="FirstLastName">Name:</label>
+                        <input type="text" asp-for="FirstLastName" />
+                    </div>
+                    <div class="about">
+                        <label asp-for="About">Full info:</label>
+                        <textarea id="aboutinfo" type="text" asp-for="About" rows="11" cols="45"></textarea>
+                    </div>
+
+                    @if (Model.Education.Count > 0)
+                    {
+                        <div class="education">
+                            <label>Education:</label>
+                            <ul>
+                                @for (int i = 0; i < Model.Education.Count && i < 2; ++i)
+                                {
+                                    <li>
+                                        <textarea type="text" asp-for="@Model.Education[i][0]" cols="20" rows="4"></textarea>
+                                        <textarea type="text" asp-for="@Model.Education[i][1]" cols="20" rows="4" style="margin-top: 20px"></textarea>
+                                    </li>
+                                }
+                            </ul>
+
+                        </div>
+                    }
+                </div>
+
+                <div class="checkboxes">
+                    @if (Model.ProgrammingLanguages.Count != 0)
+                    {
+                        <div class="CheckboxItems">
+                            <p>Programming Languages:</p>
+                            <ul>
+                                @for (var i = 0; i < Model.ProgrammingLanguages.Count; i++)
+                                {
+                                    <li>
+                                        <input type="checkbox" asp-for="@Model.ProgrammingLanguages[i].Selected" onclick="ToggleCoreStackCheckBox(this)" />
+                                        <label asp-for="@Model.ProgrammingLanguages[i].Selected">@Model.ProgrammingLanguages[i].Value</label>
+                                        <input type="hidden" asp-for="@Model.ProgrammingLanguages[i].Value" />
+                                        <input type="checkbox" class="core-stack-checkbox" asp-for="@Model.ProgrammingLanguagesCoreStack[i].Selected" />
+                                        <input type="hidden" asp-for="@Model.ProgrammingLanguagesCoreStack[i].Value" />
+                                    </li>
+                                }
+                            </ul>
+
+                        </div>
+                    }
+
+                    @if (Model.RDBMS.Count != 0)
+                    {
+                        <div class="CheckboxItems">
+                            <p>RDBMS:</p>
+                            <ul>
+                                @for (var i = 0; i < Model.RDBMS.Count; i++)
+                                {
+                                    <li>
+                                        <input type="checkbox" asp-for="@Model.RDBMS[i].Selected" onclick="ToggleCoreStackCheckBox(this)" />
+                                        <label asp-for="@Model.RDBMS[i].Selected">@Model.RDBMS[i].Value</label>
+                                        <input type="hidden" asp-for="@Model.RDBMS[i].Value" />
+                                        <input type="checkbox" class="core-stack-checkbox" asp-for="@Model.RDBMSCoreStack[i].Selected" />
+                                        <input type="hidden" asp-for="@Model.RDBMSCoreStack[i].Value" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                    @if (Model.DevelopmentTools.Count != 0)
+                    {
+                        <div class="CheckboxItems">
+                            <p>Development tools:</p>
+                            <ul>
+                                @for (var i = 0; i < Model.DevelopmentTools.Count; i++)
+                                {
+                                    <li>
+                                        <input type="checkbox" asp-for="@Model.DevelopmentTools[i].Selected" onclick="ToggleCoreStackCheckBox(this)" />
+                                        <label asp-for="@Model.DevelopmentTools[i].Selected">@Model.DevelopmentTools[i].Value</label>
+                                        <input type="hidden" asp-for="@Model.DevelopmentTools[i].Value" />
+                                        <input type="checkbox" class="core-stack-checkbox" asp-for="@Model.DevelopmentToolsCoreStack[i].Selected" />
+                                        <input type="hidden" asp-for="@Model.DevelopmentToolsCoreStack[i].Value" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    @if (Model.LibrariesFrameworksTools.Count != 0)
+                    {
+                        <div class="CheckboxItems">
+                            <p>Libraries/Frameworks/Tools:</p>
+                            <ul>
+                                @for (var i = 0; i < Model.LibrariesFrameworksTools.Count; i++)
+                                {
+                                    <li>
+                                        <input type="checkbox" asp-for="@Model.LibrariesFrameworksTools[i].Selected" onclick="ToggleCoreStackCheckBox(this)" />
+                                        <label asp-for="@Model.LibrariesFrameworksTools[i].Selected">@Model.LibrariesFrameworksTools[i].Value</label>
+                                        <input type="hidden" asp-for="@Model.LibrariesFrameworksTools[i].Value" />
+                                        <input type="checkbox" class="core-stack-checkbox" asp-for="@Model.LibrariesFrameworksToolsCoreStack[i].Selected" />
+                                        <input type="hidden" asp-for="@Model.LibrariesFrameworksToolsCoreStack[i].Value" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                    @if (Model.OperatingSystems.Count != 0)
+                    {
+                        <div class="CheckboxItems">
+                            <p>Operating systems:</p>
+                            <ul>
+                                @for (var i = 0; i < Model.OperatingSystems.Count; i++)
+                                {
+                                    <li>
+                                        <input type="checkbox" asp-for="@Model.OperatingSystems[i].Selected" onclick="ToggleCoreStackCheckBox(this)" />
+                                        <label asp-for="@Model.OperatingSystems[i].Selected">@Model.OperatingSystems[i].Value</label>
+                                        <input type="hidden" asp-for="@Model.OperatingSystems[i].Value" />
+                                        <input type="checkbox" class="core-stack-checkbox" asp-for="@Model.OperatingSystemsCoreStack[i].Selected" />
+                                        <input type="hidden" asp-for="@Model.OperatingSystemsCoreStack[i].Value" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+
+                @if (Model.Others.Count != 0)
+                {
+                    <div class="uncategorized">
+                        <p>Uncategorized skills:</p>
+                        <ul>
+                            @for (var i = 0; i < Model.Others.Count; i++)
+                            {
+                            <li>
+                                <div class="leftcheckbox">
+                                    <input type="checkbox" asp-for="@Model.Others[i].Selected" onclick="ToggleCoreStackCheckBox(this)" />
+                                    <input type="hidden" asp-for="@Model.Others[i].Value" />
+                                </div>
+                                <div class="centeruncategorizedinfo">
+                                    <label asp-for="@Model.Others[i].Selected">@Model.Others[i].Value</label>
+                                    <select class="combo" asp-for="@Model.SkillType[i]" >
+                                        <option value="Uncategorized" selected>Uncategorized</option>
+                                        <option value="ProgrammingLanguages">Programming Languages</option>
+                                        <option value="RDBMS">RDBMS</option>
+                                        <option value="DevelopmentTools">DevelopmentTools</option>
+                                        <option value="LibrariesFrameworksTools">Libraries/Frameworks/Tools</option>
+                                        <option value="OperatingSystems">Operating Systems</option>
+                                    </select>
+                                </div>
+                                <div class="rightcheckbox">
+                                    <input type="checkbox" class="core-stack-checkbox" asp-for="@Model.OthersCoreStack[i].Selected" />
+                                    <input type="hidden" asp-for="@Model.OthersCoreStack[i].Value" />
+                                </div>                               
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+
+            <div class="exp-bttn">
+                <input type="submit" value="Export to Excel" /><br />
+
+            </div>
+            <p id="note">Note: Right checkboxes for core stack</p>
+        </form>
+    </div>
+</body>

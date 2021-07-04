@@ -1,0 +1,78 @@
+﻿@model LinkedIn_CV_Parser_ASP.ViewModels.SkillsViewModel
+@{
+    Layout = "_Layout_Admin";
+    ViewData["Title"] = "Skills";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/SkillStyles.css">
+</head>
+
+<form method="get">
+    <div class="inputs">
+        <input type="submit" name="category" value="ProgrammingLanguages" />
+        <input type="submit" name="category" value="LibrariesFrameworksTools" />
+        <input type="submit" name="category" value="RDBMS" />
+        <input type="submit" name="category" value="DevelopmentTools" />
+        <input type="submit" name="category" value="OperatingSystems" />
+    </div>
+</form>
+
+<form method="post">
+    <div class="data">
+        <label>@ViewBag.Category</label><br />
+        <input type="hidden" value=@ViewBag.Category name="Category" />
+        <input type="text" name="NewValue" placeholder="Type here" />
+        <div class="databuttons">
+            <button type="submit" value="Add" name="Action">Add</button>
+            <button type="submit" value="Delete" name="Action">Delete</button>
+        </div>
+        <label style="color:#DC3131">@ViewBag.Message</label>
+    </div>
+    <div class="list-group-horizontal">
+        <ul>
+            @foreach (var category in Model.FirstSkillsColumn)
+            {
+                <li>
+                    <input type="checkbox" value="@category" name="values">
+                    <label>@category</label>
+                </li>
+
+            }
+        </ul>
+        <ul>
+            @foreach (var category in Model.SecondSkillsColumn)
+            {
+                <li>
+                    <input type="checkbox" value="@category" name="values">
+                    <label>@category</label>
+                </li>
+
+            }
+        </ul>
+        <ul>
+            @foreach (var category in Model.ThirdSkillsColumn)
+            {
+                <li>
+                    <input type="checkbox" value="@category" name="values">
+                    <label>@category</label>
+                </li>
+
+            }
+        </ul>
+            <ul>
+                @foreach (var category in Model.FourthSkillsColumn)
+                {
+                    <li>
+                        <input type="checkbox" value="@category" name="values">
+                        <label>@category</label>
+                    </li>
+
+                }
+            </ul>
+</div>
+    
+</form>
+
+
+

@@ -1,0 +1,284 @@
+﻿body {
+    background-color: rgb(181, 216, 227);
+}
+
+
+.maininfo {
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+    display: flex;
+
+}
+
+.CheckboxItems {
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+    background: #e1f6ff;
+    border: 5px solid #8AA4AC;
+    box-sizing: border-box;
+    border-radius: 25px;
+    font-family: Calibri;
+    font-size: 24px;
+    text-align: center;
+
+}
+
+.CheckboxItems li
+{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.uncategorized {
+    margin-top: 10px;
+    width: 450px;
+    height: auto;
+    background: #e1f6ff;
+    border: 8px solid #8AA4AC;
+    box-sizing: border-box;
+    border-radius: 25px;
+    font-family: Calibri;
+    font-size: 24px;
+    text-align: center;
+}
+
+.CheckboxItems ul {
+    list-style-type: none;
+    text-align: left;
+    margin-right: 20px;
+}
+
+.uncategorized p {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 100%;
+    text-decoration-line: underline;
+}
+
+
+.uncategorized ul {
+    list-style-type: none;
+    text-align: left;
+    margin-right: 20px;
+}
+
+.uncategorized ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.uncategorized ul li select
+{
+    width:200px;
+    text-align:center;
+}
+
+.leftcheckbox {
+    width: 20px;
+    vertical-align:middle;
+}
+
+.centeruncategorizedinfo {
+    width: 220px;
+}
+
+.rightcheckbox {
+    width: 20px;
+    vertical-align: middle;
+}
+
+.uncategorized ul li label {
+    word-wrap:break-word;
+    width:200px;
+}
+
+.CheckboxItems p {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 100%;
+    text-decoration-line: underline;
+}
+
+.CheckboxItems p {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 100%;
+    text-decoration-line: underline;
+}
+
+.checkboxes {
+    width: 300px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.info {
+    width: 615px;
+    height: 900px;
+    border: 8px solid #8AA4AC;
+    border-radius: 41px;
+    background: #e1f6ff;
+
+}
+
+#aboutinfo {
+    background-color: #ffffff;
+    border-radius: 20px;
+    resize: none;
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 100%;
+    padding: 10px;
+}
+
+textarea::-webkit-scrollbar{
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #8AA4AC;
+    border-radius: 5px;
+}
+
+.about
+{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+}
+
+.about label {
+    margin-top: 15px;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 100%;
+    text-decoration-line: underline;
+    margin-left: 20px;
+    display: flex;
+}
+
+.info input {
+    background-color: #ffffff;
+    width: auto;
+}
+
+.education {
+    height: auto;
+    margin-top: 10px;
+    flex-direction:column;
+    justify-content: space-evenly;
+    display: flex;
+    padding: 0 10px 0 10px;
+}
+
+.education ul {
+    list-style-type: none;
+    display: flex;
+    justify-content:space-evenly;
+    padding: 0px;
+}
+.education ul li
+{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+
+}
+.education textarea {
+    margin-top: 5px;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 100%;
+    resize: none;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    height: auto;
+}
+
+.name label {
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 100%;
+    text-decoration-line: underline;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 30px;
+}
+
+.name input {
+    margin-top: 50px;
+    margin-left: -11px;
+    border: none;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 100%;
+    background-color: #e1f6ff;
+}
+
+.education label {
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 100%;
+    text-decoration-line: underline;
+    margin-left: 10px;
+}
+
+.exp-bttn {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.exp-bttn input {
+    font-size: 24px;
+    font-family: Calibri;
+    color: white;
+    background-color: #6d9fac;
+    border: #6d9fac;
+    font-weight: bold;
+    border-radius: 9px;
+}
+
+.core-stack-checkbox
+{
+    float:right;
+}
+
+#note {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+    color: #DC3131;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+}

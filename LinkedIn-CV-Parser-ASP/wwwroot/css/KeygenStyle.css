@@ -1,0 +1,91 @@
+.inputs input{
+    font-size: 24px;
+    font-family: 'Calibri';
+    color: white;
+    background-color: #009DE0;
+    border: #009DE0;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.txt input{
+    font-size: 24px;
+    font-family: 'Calibri';
+    width: 330px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+.txt{
+    margin-top: 50px;
+    width: 350px;
+}
+
+.inputs{
+    margin-top: 25px;
+}
+
+
+p {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.chkbxs{
+    background: #e1f6ff;
+    border: 5px solid #8AA4AC;
+    box-sizing: border-box;
+    border-radius: 25px;
+    font-family: Calibri;
+    font-size: 24px;
+    width: 300px;
+    justify-content: center;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.chkbxs ul{
+
+    text-align: left;
+    margin-left: 20px;
+    list-style-type: none;
+}
+
+.error {
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: 'Calibri';
+    color: #DC3131;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+#select {
+    font-size: 24px;
+    font-family: 'Calibri';
+    color: white;
+    background-color: #009DE0;
+    border: #009DE0;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+select {
+    font-size: 20px;
+    font-family: 'Calibri';
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+    outline: none;
+}

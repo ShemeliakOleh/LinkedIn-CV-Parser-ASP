@@ -1,0 +1,32 @@
+﻿@{
+    @if (ViewBag.Role == "User") {
+        Layout = "_Layout_User";
+    } else if (ViewBag.Role == "Admin") {
+        Layout = "_Layout_Admin";
+    }
+    ViewData["Title"] = "Settings";
+}
+<head>
+    <link rel="stylesheet" href="~/css/ChngPwdStyles.css">
+</head>
+<h2>Change password</h2><br /><br />
+<form method="post" class="main">
+    <div><input type="password" name="oldPassword" id="oldPassword" placeholder="Old password" /></div>
+    <div><input type="password" name="newPassword" id="newPassword" placeholder="New password" /></div>
+    <div><input type="password" name="newPasswordConfirm" id="newPasswordConfirm" placeholder="Re-enter new password" /></div>
+    <input type="submit" value="Change" name="operation" id="submit" />
+</form>
+
+<div class="error"  style="text-align: center;"   >
+    @if (ViewBag.PasswordsDoesntMatch == true) {
+        <label style="color:red">Passwords doesn't match</label>
+    }
+    @if (ViewBag.IncorrectOldPassword == true) {
+        <label style="color:red">Incorrect old password</label>
+    }
+</div>
+
+<form method="post" onsubmit="return confirm('Are you sure you want to delete your account?')" style="justify-content:center;display:flex">
+    <input type="submit" value="Delete my account" name="operation" id="del" />
+    <label >@ViewBag.DeleteAccountMessage</label>   
+</form>

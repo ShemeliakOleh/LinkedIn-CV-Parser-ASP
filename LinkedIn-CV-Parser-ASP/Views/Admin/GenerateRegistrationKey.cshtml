@@ -1,0 +1,63 @@
+﻿@model RegistrationKeyViewModel
+@{
+    Layout = "_Layout_Admin";
+    ViewData["Title"] = "Generate registration Code";
+}
+<link rel="stylesheet" href="~/css/KeygenStyle.css">
+<form method="post" action="@Url.Action("GetKeysByRole", "Admin")">
+    <select class="combo" name="Role">
+        @if (Model.Role == "User") {
+            <option value="User" selected>User</option>
+            <option value="Admin">Admin</option>
+        } else if (Model.Role == "Admin") {
+            <option value="User">User</option>
+            <option value="Admin" selected>Admin</option>
+        }
+    </select>
+    <input type="submit" value="Select" id="select"/>
+</form>
+<form method="post">
+    
+    <div class="txt">
+        <input type="text" name="newKey" value="@Model.NewKey" placeholder="Type key here or generate it" />
+    </div>
+    <div class="error">
+        @if (ViewBag.NotAllowedCharacters == true)
+        {
+            <label>Key must contain only a-z, A-Z, 0-9, -, _ and must be between 8 and 12 characters!</label>
+        }
+        @if (ViewBag.KeyAlreadyExists == true)
+        {
+            <label>Key already exists!</label>
+        }
+    </div>
+    <div class="inputs">
+        <input type="submit" name="action" value="Add" />
+        <input type="submit" name="action" value="Generate" />
+        <input type="submit" name="action" value="Remove selected" />
+    </div>
+    <input type="hidden" name="Role" value="@Model.Role"/>
+    @if (Model.RegistrationKeys.Count != 0)
+    {
+        <p>Available @Model.Role keys:</p>
+        <div class="chkbxs">
+
+            <ul>
+                @for (var i = 0; i < Model.RegistrationKeys.Count; i++)
+                {
+                    <li>
+                        <input type="checkbox" asp-for="@Model.RegistrationKeys[i].Selected" />
+                        <label asp-for="@Model.RegistrationKeys[i].Selected">@Model.RegistrationKeys[i].Value</label>
+                        <input type="hidden" asp-for="@Model.RegistrationKeys[i].Value" />
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+    else
+    {
+        <p style="color:red;">No keys available!</p>
+    }
+</form>
+
+

@@ -1,0 +1,45 @@
+﻿@model List<User>
+@{
+    Layout = "_Layout_Admin";
+    ViewData["Title"] = "Users";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/SkillStyles.css">
+</head>
+<form method="post" onsubmit="return confirm('Are you sure you want to delete the selected users?');">
+    <div class="data">
+        <label>Delete User</label>
+        <input type="text" name="email" placeholder="Type here" />
+        <button type="submit" value="Delete" name="operation">Delete</button><br />
+        <label style="color:red">@ViewBag.Message</label>
+    </div>
+<table class="table">
+    <tr>
+        <th>Select</th>
+        <th>Id</th>
+        <th>Email</th>
+        <th>Key</th>
+        <th>Role</th>
+        <th>Is_email_confirmed</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+<tr>
+    @if (user.Role != "Admin")
+    {
+        <th style="text-align:center"><input type="checkbox" value="@user.Email" name="usersToDelete" /></th>
+    }
+    else
+    {
+        <th style="text-align:center"></th>
+    }
+        <th>@user.Id</th>
+        <th>@user.Email</th>
+        <th>@user.Key</th>
+        <th>@user.Role</th>
+        <th>@user.IsEmailConfirmed</th>
+    </tr>
+    }
+</table>
+</form>

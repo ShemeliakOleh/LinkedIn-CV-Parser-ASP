@@ -1,0 +1,82 @@
+﻿@model LinkedIn_CV_Parser_ASP.ViewModels.UpdateTemplateViewModel
+@{
+    Layout = "_Layout_Admin";
+    ViewData["Title"] = "Update Template";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/TemplStyles.css">
+</head>
+<form method="post" enctype="multipart/form-data">
+    <div class="data">
+        <ul>
+            <li>
+                <label for="ExcelFile">Choose excel file:</label>
+                <input type="file" id="btn" asp-for="ExcelFile" accept=".xlsx" required />
+            </li>
+            <li>
+                <label for="SheetName">Excel Sheet Name:</label>
+                <input type="text" id="SheetName" asp-for="CellsLocation.SheetName" value="@Model.CellsLocation.SheetName" required />
+                @if (ViewBag.IncorrectSheetName == true)
+                {
+                    <label style="color:red">You entered incorrect sheet name when upadating excel CV template. Update template with correct sheet name!</label>
+                }
+            </li>
+            <li>
+                <label for="FirstLastName">First/Last Name Cell:</label>
+                <input type="text" id="FirstLastName" asp-for="CellsLocation.FirstLastName" value="@Model.CellsLocation.FirstLastName" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="About">About:</label>
+                <input type="text" id="About" asp-for="CellsLocation.About" value="@Model.CellsLocation.About" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="Ed1UN">Education 1 University Name Cell:</label>
+                <input type="text" id="Ed1UN" asp-for="CellsLocation.Ed1UN" value="@Model.CellsLocation.Ed1UN" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="Ed1OI">Education 1 Other Info Cell:</label>
+                <input type="text" id="Ed1OI" asp-for="CellsLocation.Ed1OI" value="@Model.CellsLocation.Ed1OI" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="Ed2UN">Education 2 University Name Cell:</label>
+                <input type="text" id="Ed2UN" asp-for="CellsLocation.Ed2UN" value="@Model.CellsLocation.Ed2UN" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="Ed2OI">Education 2 Other Info Cell:</label>
+                <input type="text" id="Ed2OI" asp-for="CellsLocation.Ed2OI" value="@Model.CellsLocation.Ed2OI" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="ProgrammingLanguages">Programming Languages Cell:</label>
+                <input type="text" id="ProgrammingLanguages" asp-for="CellsLocation.ProgrammingLanguages" value="@Model.CellsLocation.ProgrammingLanguages" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="RDBMS">RDBMS Cell:</label>
+                <input type="text" id="RDBMS" asp-for="CellsLocation.RDBMS" value="@Model.CellsLocation.RDBMS" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="DevelopmentTools">Development Tools Cell:</label>
+                <input type="text" id="DevelopmentTools" asp-for="CellsLocation.DevelopmentTools" value="@Model.CellsLocation.DevelopmentTools" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="OperatingSystems">Operating Systems Cell:</label>
+                <input type="text" id="OperatingSystems" asp-for="CellsLocation.OperatingSystems" value="@Model.CellsLocation.OperatingSystems" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="LibrariesFrameworksTools">Libraries/Frameworks/Tools Cell:</label>
+                <input type="text" id="LibrariesFrameworksTools" asp-for="CellsLocation.LibrariesFrameworksTools" value="@Model.CellsLocation.LibrariesFrameworksTools" pattern="^[A-Za-z]+[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="Others">Other Skills Cell,Column Height:</label>
+                <input type="text" id="Others" asp-for="CellsLocation.Others" value="@Model.CellsLocation.Others" pattern="^[A-Za-z][1-9]+[0-9]*,[1-9]+[0-9]*$" required />
+            </li>
+            <li>
+                <label for="CoreStack">Input seperated by space or ',' Core Stack Cells:</label>
+                <input type="text" id="CoreStack" asp-for="@Model.CoreStack" value="@Model.CoreStack" pattern="^([A-Za-z]+[1-9]+[0-9]*[ ,])+([A-Za-z]+[1-9]+[0-9]*)$" required />
+            </li>
+        </ul>
+        <input type="submit" id="submit" value="Update template" />
+
+
+    </div>
+</form>

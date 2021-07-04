@@ -1,0 +1,77 @@
+﻿.data input {
+    margin-left: 10px;
+    font-size: 23px;
+    font-family: 'Calibri';
+    text-align: center;
+    background-color: white;
+    border: white;
+    border-radius: 5px;
+    float: right;
+    margin-right: 30px;
+    margin-left: 90px;
+}
+
+.data button {
+    font-size: 23px;
+    font-family: 'Calibri';
+    color: white;
+    background-color: #009DE0;
+    border: #009DE0;
+    border-radius: 5px;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+.data li{
+    margin-top:8px;
+    vertical-align:middle;
+}
+
+.data label {
+    font-size: 23px;
+    line-height: 100%;
+    font-family: Calibri;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+    outline: none;
+}
+
+
+.data {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items:center;
+}
+
+#submit {
+    font-size: 24px;
+    font-family: 'Calibri';
+    color: white;
+    background-color: #009DE0;
+    border: #009DE0;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 175px;
+    margin-top: 15px;
+    padding: 0;
+    text-align: center;
+}
+
+::-webkit-file-upload-button {
+    background: #009DE0;
+    color: white;
+    height: 35px;
+    border: none;
+}
+
+#btn {
+    height: 35px;
+    width:270px;
+}

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Confirm email";
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+<div class="main">
+    <h2>To complete registration, check your email and follow the link provided in the letter</h2>
+</div>
+<form method="post">
+    <p>If you haven't recieved email, you can resend email confirmation letter:</p>
+    <label>Enter email:</label>
+    <input type="email" name="email" id="emailinput" />
+    <input type="submit" value="Resend" id="submitbutton"/>
+</form>
+@if (ViewBag.IncorrectEmail == true) { 
+    <p style="color:red;">Email is incorrect or email doesn't exists</p>
+}
